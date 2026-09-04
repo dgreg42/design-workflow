@@ -1,0 +1,4 @@
+.DS_Store
+*.new
+_append_tmp/
+_to_delete/
