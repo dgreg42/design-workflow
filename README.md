@@ -35,8 +35,9 @@ taste from memory, and enforcement spends its time cleaning up after that guess.
   tokens live here.
 - **`DESIGN.md`**: the design system. Tokens plus rationale, including an
   Anti-Tells section. This is the file agents read to build UI.
-- **`.claude/skills/impeccable/`**: the installed Impeccable skill (project
-  scope).
+- **`.claude/skills/impeccable/`**: the vendored Impeccable skill (project scope).
+  Third-party, Apache 2.0, refreshed from upstream rather than edited.
+- **`NOTICE.md`**: what is vendored, from whom, under which license.
 
 ## How to use it
 
@@ -64,6 +65,14 @@ taste from memory, and enforcement spends its time cleaning up after that guess.
    to review real pages against the detector rules.
 7. **Clear the research gate** at the end of `RESEARCH.md` before calling the
    work done, and compare what was built against the locked reference.
+
+## What is ours and what is vendored
+
+Design Workflow is the root. Impeccable is a dependency inside it, not the other way around.
+The plugin manifest names this repo, and `NOTICE.md` credits Impeccable, the design.md format,
+and the Refero method that `RESEARCH.md` adapts. Treat `.claude/skills/impeccable/` as read-only:
+refresh it from upstream and record the version in `NOTICE.md`. Anything this stack wants to
+change about how enforcement behaves belongs in `CLAUDE.md` or `RESEARCH.md`, which sit above it.
 
 ## Research sources
 

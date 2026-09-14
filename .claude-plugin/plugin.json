@@ -1,12 +1,24 @@
 {
-  "name": "impeccable",
-  "description": "Design fluency for frontend development. 1 skill with 23 commands (/impeccable polish, /impeccable audit, /impeccable critique, etc.) and curated anti-pattern detection.",
-  "version": "3.9.1",
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "design-workflow",
+  "displayName": "Design Workflow",
+  "version": "0.2.0",
+  "description": "Research-first design system for AI-built interfaces. Five layers: RESEARCH.md decides where decisions come from, PRODUCT.md sets strategy, DESIGN.md holds the tokens, CLAUDE.md enforces the protocol, and the vendored Impeccable skill detects AI tells in the output.",
   "author": {
-    "name": "Paul Bakaus",
-    "email": "paul@paulbakaus.com"
+    "name": "Dan Gregoras",
+    "url": "https://astergrey.com"
   },
-  "homepage": "https://impeccable.style",
-  "repository": "https://github.com/pbakaus/impeccable",
-  "skills": "./.claude/skills/"
+  "homepage": "https://github.com/dgreg42/design-workflow",
+  "repository": "https://github.com/dgreg42/design-workflow",
+  "license": "SEE NOTICE.md",
+  "keywords": [
+    "design",
+    "design-system",
+    "design-research",
+    "ui",
+    "ux",
+    "brand",
+    "anti-ai-slop",
+    "tokens"
+  ]
 }

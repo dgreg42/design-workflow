@@ -2,3 +2,13 @@
 *.new
 _append_tmp/
 _to_delete/
+
+# Session scaffolding: commit scripts, their logs, message files, and the staging
+# folder used when .claude cannot be written remotely. None of this is the stack.
+commit-*.cmd
+commit-*.log
+commit-message.txt
+_skill-update/
+
+# Files delivered back from a Claude session
+Claude outputs/

@@ -1,6 +1,6 @@
 ---
 name: design-workflow
-description: Use when creating, starting, or scaffolding a new website, web app, dashboard, landing page, frontend, UI, component library, or design system, or when a project needs a design system set up or design guidance applied. Stamps the Design Workflow stack (RESEARCH.md research protocol, PRODUCT.md strategy, DESIGN.md tokens, and the Impeccable anti-tell detector) into the project, and enforces research before tokens plus a tell-free design protocol. Not for backend-only, data, or non-UI work.
+description: "Use when creating, starting, or scaffolding a new website, web app, dashboard, landing page, frontend, UI, component library, or design system, or when a project needs a design system set up or design guidance applied. Stamps the Design Workflow stack (RESEARCH.md research protocol, PRODUCT.md strategy, DESIGN.md tokens, and the Impeccable anti-tell detector) into the project, and enforces research before tokens plus a tell-free design protocol. Not for backend-only, data, or non-UI work."
 ---
 
 # Design Workflow
@@ -30,27 +30,42 @@ It brings five things into the target project and then holds the build to them:
   detector for AI tells.
 - `CLAUDE.md`: the protocol every agent in the project must follow.
 
-These are ordered on purpose. `RESEARCH.md` decides what goes into `DESIGN.md`;
-Impeccable checks what came out. Without the research layer the model supplies its own taste
-from memory and the detector spends its time cleaning up the result.
+These are ordered on purpose. `RESEARCH.md` decides what goes into `DESIGN.md`; Impeccable
+checks what came out. Without the research layer the model supplies its own taste from memory
+and the detector spends its time cleaning up the result.
+
+## Where the stack lives
+
+The canonical stack is the Design Workflow repo on the workstation,
+`D:\00_WORK\00_Projects\00_Developer\Design Workflow`, mirrored at
+`https://github.com/dgreg42/design-workflow`. Per `workstation-first`, personal and Aster Grey
+projects are stamped there, never on the Mac. The Mac copy at
+`/Users/dan.gregoras/developer/Design Workflow` is only for BUCK projects worked on the Mac.
 
 ## Steps
 
 1. **Identify the project directory.** If it is ambiguous or the project is brand new, confirm
-   the target folder with the user before writing anything.
+   the target folder with the user before writing anything. For a personal project that is a
+   folder under `D:\00_WORK\00_Projects\00_Developer` on the workstation.
 
-2. **Stamp the stack in.** Run the scaffolder (it copies the five items above, skips existing
-   docs unless `--force`, and validates the design system):
+2. **Stamp the stack in.** A cloud session has no shell on the workstation, so run the
+   scaffolder in the sandbox and carry the result over:
 
    ```bash
-   bash "D:/00_WORK/00_Projects/00_Developer/Design Workflow/scaffold-design.sh" <project-dir>
+   git clone https://github.com/dgreg42/design-workflow /tmp/design-workflow
+   bash /tmp/design-workflow/scaffold-design.sh <sandbox copy of the project>
    ```
 
-   The scaffolder defaults its source to the directory it lives in, so running it from the
-   canonical repo needs no configuration. Override with
-   `DESIGN_WORKFLOW_SRC=/path bash .../scaffold-design.sh <project-dir>` if the stack lives
-   elsewhere. If the canonical repo is unavailable, use the copy in this skill at
-   `scripts/scaffold-design.sh` with `DESIGN_WORKFLOW_SRC` pointed at a valid stack.
+   Then `device_commit_files` the five items into the project folder on the workstation. Note
+   that `.claude` is blocked for remote writes, so the Impeccable skill folder cannot be
+   committed from a cloud session; stage those files beside the repo and have a `.cmd` copy
+   them into place, or run the scaffolder on the machine itself. The scaffolder skips existing
+   docs unless `--force` and validates the design system. It resolves its source to the
+   directory it lives in, so a fresh clone needs no configuration. This skill's bundled
+   `scripts/scaffold-design.sh` is a stale fallback only; if the clone fails, use it with
+   `DESIGN_WORKFLOW_SRC` pointed at a staged copy of the stack. When a shell is available on the
+   target machine (Claude Code on the workstation, or the Mac for BUCK), run the scaffolder
+   there directly against the local stack.
 
 3. **Read `PRODUCT.md`, then `RESEARCH.md`, then `DESIGN.md`.** Set or confirm the register
    (`product` or `brand`) with the user, since it forks every downstream decision. Fill in
@@ -92,3 +107,7 @@ from memory and the detector spends its time cleaning up the result.
 - Do not delete `.claude/skills/impeccable/`; the detector and commands depend on it.
 - Research sources are ranked in `RESEARCH.md`. Refero MCP sits in that list and is optional;
   the protocol works without a subscription, using captures and user-supplied references.
+  Refero content is licensed for design work, not for bulk extraction or for building a library
+  of our own.
+- Never write a `/Users/dan.gregoras/...` path into a personal project's files. If you find one,
+  replace it with the `D:\` path and say so.

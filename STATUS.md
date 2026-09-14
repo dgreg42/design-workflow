@@ -1,7 +1,7 @@
 # STATUS · Design Workflow
 
 status: active
-next: Commit the research layer via commit-2026-09-14-research-layer.cmd, then stamp it into one live project (Westphal or an offer demo) and run a real task through the gate.
+next: Run commit-2026-09-14-research-layer.cmd, then stamp the stack into one live project (Westphal or an offer demo) and put a real task through the research gate.
 blocker: none
 due: none
 project: System

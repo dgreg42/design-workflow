@@ -1,10 +1,12 @@
 # Product
 
 Strategic layer for the design system. PRODUCT.md says who the product is for and why it
-exists. DESIGN.md says how it looks. Keep them separate: no colors, fonts, or spacing here, and
-no strategy in DESIGN.md. The wiring rule: every entry under Anti-references below must appear
+exists. RESEARCH.md says where design decisions are allowed to come from. DESIGN.md says how it
+looks. Keep the three separate: no colors, fonts, or spacing here, no strategy in DESIGN.md, and
+no tokens in RESEARCH.md. The wiring rule: every entry under Anti-references below must appear
 as a matching "Don't" in DESIGN.md, so the strategic line carries into the enforceable visual
-spec. This file is a fillable template. Replace the bracketed placeholders per product.
+spec. Research runs after this file is filled in and before DESIGN.md tokens are set. This file
+is a fillable template. Replace the bracketed placeholders per product.
 
 ## Register
 

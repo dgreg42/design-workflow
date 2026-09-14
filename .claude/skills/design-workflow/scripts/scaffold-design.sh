@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Design Workflow scaffolder.
 # Stamps the design stack (PRODUCT.md, RESEARCH.md, DESIGN.md, CLAUDE.md protocol,
-# and the Impeccable skill) into a target project so its DESIGN.md/PRODUCT.md and
+# NOTICE.md, and the vendored Impeccable skill) into a target project so its DESIGN.md/PRODUCT.md and
 # the /impeccable commands + detector are active there.
 #
 # Usage:
@@ -49,6 +49,10 @@ copy_doc "CLAUDE.md"
 rm -rf "$DST/.claude/skills/impeccable"
 cp -R "$SRC/.claude/skills/impeccable" "$DST/.claude/skills/"
 echo "  sync  .claude/skills/impeccable"
+# NOTICE.md carries the Apache 2.0 attribution for the vendored Impeccable skill, so it
+# travels with it and is always refreshed rather than skipped.
+cp "$SRC/NOTICE.md" "$DST/NOTICE.md"
+echo "  sync  NOTICE.md"
 if ls "$SRC/.claude/agents/"*.md >/dev/null 2>&1; then
   cp "$SRC/.claude/agents/"*.md "$DST/.claude/agents/" 2>/dev/null || true
   echo "  sync  .claude/agents"

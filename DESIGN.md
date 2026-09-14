@@ -436,6 +436,106 @@ Express states (`-hover`, `-disabled`, `-active`) as separate component entries 
   `button-secondary` plus `button-primary` pair right.
 - **`footer`**: Dense link grid on `{colors.surface-1}` with muted ink.
 
+## Motion
+
+Motion earns its place by doing one of three jobs: confirming an action landed, carrying an
+element from where it was to where it went, or pulling the eye to what changed. An animation
+doing none of those is noise. When unsure, go shorter, subtler, or none.
+
+### Duration
+
+| Band | Value | Use |
+|---|---|---|
+| Fast | 120ms | Hover, press, focus ring, toggle |
+| Default | 200ms | Accordion, tabs, small panels, tooltip |
+| Slow | 320ms | Modal, drawer, route change |
+| Extended | 360 to 500ms | Large layout reflow only, and rare |
+
+Shorter distance means shorter duration. Higher frequency means shorter duration. Anything past
+500ms in product UI reads as sluggish. If a user does it a hundred times a day, make it instant.
+
+### Easing
+
+| Motion | Curve | Why |
+|---|---|---|
+| Enter | `cubic-bezier(0, 0, 0.2, 1)` | Fast start, soft landing |
+| Exit | `cubic-bezier(0.4, 0, 1, 1)` | Soft start, quick exit |
+| State change | `cubic-bezier(0.4, 0, 0.2, 1)` | Even both directions |
+
+Durations and easings live as raw CSS here for the same reason shadows do: the format has no
+motion token type yet. Promote them to custom properties on export.
+
+### Component Mapping
+
+| Component | Duration | Easing |
+|---|---|---|
+| Hover, press | Fast | Enter |
+| Accordion, tabs | Default | State change |
+| Tooltip, popover | Fast | Enter |
+| Modal, drawer | Slow | Enter in, Exit out |
+| List row add | Default, fade plus 8px slide | Enter |
+| List row remove | 180ms, fade plus collapse | Exit |
+
+Press feedback is `scale(0.98)` at 90 to 120ms, never a bounce. Springs are for drag, swipe, and
+gesture only, and must decay fast. Input errors shake once on submit, never on keystroke.
+
+### Focus
+
+Use `:focus-visible`, never bare `:focus`, so the ring appears for keyboard navigation and not
+on every mouse click. The ring is a 2px `{colors.primary-focus}` outline at 2px offset, fading in
+over the Fast band with no layout shift. Never remove an outline without replacing it: where a
+custom ring is needed, stack two box shadows so the inner one is the surface color and the outer
+one is `{colors.primary-focus}`. Compound controls such as an input with a leading icon take the
+ring on the wrapper via `:focus-within`, not on the bare field.
+
+### Reduced Motion
+
+`prefers-reduced-motion` is honored on every surface, not added at the end. Under it, slide and
+scale collapse to a plain fade, parallax and autoplay stop, and durations drop to the Fast band
+or to zero. The interface must still communicate state change without the movement.
+
+## Icons
+
+Icons are typography, not decoration. Functional, consistent, and legible before anything else.
+
+One set per product. Mixing libraries, or outline in the nav against solid in the buttons, reads
+as a collage. Outline suits dense and data-heavy interfaces, solid suits consumer-facing actions.
+Lucide is the sane default for web product UI; Heroicons pairs with Tailwind; Phosphor is the
+choice when several weights are needed. Whatever is picked, document the canvas, stroke weight,
+and cap style, and hold every custom glyph to that same grid.
+
+### Sizing
+
+| Context | Icon | Paired text |
+|---|---|---|
+| Inline with body, table cells, dense UI | 16px | 14 to 16px |
+| Buttons, nav items, form inputs | 20 to 24px | 16 to 18px |
+| Feature cards, empty states | 28 to 32px | Headings |
+
+Stroke weight tracks size: 2px is the common default, 1.5px reads better large, 2.5px holds up
+small. Match icon weight to text weight. Semibold text beside a hairline icon looks borrowed from
+another system.
+
+### Color and Contrast
+
+Default to `currentColor` so icons inherit ink and follow a theme swap without a second set of
+rules. Semantic color is for status only, using the `{colors.success}`, `{colors.warning}`, and
+`{colors.danger}` pairs, never for emphasis. Any icon carrying meaning on its own meets 3:1
+against its background, which covers icon buttons, toggles, and status glyphs.
+
+### Optical Correction
+
+Geometric center is not visual center. Play triangles shift right by half a pixel to one pixel,
+chevrons and arrows shift toward the point. Circles read lighter than squares at the same stroke,
+and diagonals read thinner than horizontals. Aim for equal visual mass, not equal measurement.
+
+### Accessibility
+
+An action icon carries an `aria-label` on its control or has visible text beside it. A decorative
+icon is `aria-hidden="true"`. Icon buttons keep a 44px hit area on touch and 32px on pointer, and
+the visual glyph may be smaller than the target. Before shipping, check the set at half scale, in
+grayscale, on the dark surfaces, and inside a table row where icons most often overpower the text.
+
 ## Anti-Tells
 
 Rules the system holds itself to so its output does not read as AI-generated. These mirror the
@@ -512,5 +612,6 @@ mobile to meet that floor.
   variants when you build the theme.
 - Shadow values live in the Elevation table as raw CSS, since the format has no shadow token type
   yet. Promote them to your framework's shadow scale on export.
-- Motion, focus-visible timing, and iconography sit outside this format and belong in your
-  component library.
+- Motion, focus, and iconography are documented above as prose and raw CSS, since the format has
+  no token type for duration, easing, or glyph specs. Promote them to your framework's own scales
+  on export, the way the Elevation shadows are promoted.
