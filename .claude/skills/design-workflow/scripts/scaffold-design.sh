@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 # Design Workflow scaffolder.
-# Stamps the design stack (PRODUCT.md, DESIGN.md, CLAUDE.md protocol, and the
-# Impeccable skill) into a target project so its DESIGN.md/PRODUCT.md and the
-# /impeccable commands + detector are active there.
+# Stamps the design stack (PRODUCT.md, RESEARCH.md, DESIGN.md, CLAUDE.md protocol,
+# and the Impeccable skill) into a target project so its DESIGN.md/PRODUCT.md and
+# the /impeccable commands + detector are active there.
 #
 # Usage:
 #   ./scaffold-design.sh /path/to/project        # stamp the stack (skips files that exist)
-#   ./scaffold-design.sh /path/to/project --force # overwrite existing DESIGN.md/PRODUCT.md/CLAUDE.md
+#   ./scaffold-design.sh /path/to/project --force # overwrite existing docs
 #
 # The canonical source defaults to this repo; override with DESIGN_WORKFLOW_SRC.
 
 set -euo pipefail
 
-SRC="${DESIGN_WORKFLOW_SRC:-/Users/dan.gregoras/developer/Design Workflow}"
+# Defaults to the directory this script lives in, so the canonical repo is the source
+# wherever it is checked out. Override with DESIGN_WORKFLOW_SRC.
+SRC="${DESIGN_WORKFLOW_SRC:-$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)}"
 DST="${1:-}"
 FORCE="${2:-}"
 
@@ -39,6 +41,7 @@ copy_doc () {
 
 echo "Stamping Design Workflow stack into: $DST"
 copy_doc "PRODUCT.md"
+copy_doc "RESEARCH.md"
 copy_doc "DESIGN.md"
 copy_doc "CLAUDE.md"
 
@@ -64,3 +67,4 @@ echo "Validating design system..."
 echo
 echo "Done. The stack is active in $DST."
 echo "Next: edit PRODUCT.md and DESIGN.md for this project, then reload your agent so it reads CLAUDE.md."
+echo "Research runs before tokens. RESEARCH.md says where design decisions may come from."
