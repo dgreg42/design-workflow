@@ -53,7 +53,7 @@ own. Captures we make ourselves from public pages are a separate thing and are o
 A standing library of captured evidence, kept so research does not start from zero each time.
 It lives in the Brand Kit repo on the workstation:
 
-`D:\00_WORK\00_Projects\00_Developer\Brand Kit\_method\reference`
+`D:\00_WORK\00_Projects\00_Developer\Theoriste\projects\Brand Kit\_method\reference`
 
 - `case-studies\`: 191 real brand case study pages across ten lanes, by market. How the best
   work in a market is structured, written and shown. Start at its `README.md`, then the brief

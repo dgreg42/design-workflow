@@ -66,6 +66,6 @@ If the project has a governed brand record, it outranks everything found in rese
 ## Source
 
 This stack is stamped from the canonical Design Workflow at
-`D:\00_WORK\00_Projects\00_Developer\Design Workflow`. To refresh it, re-run
+`D:\00_WORK\00_Projects\00_Developer\_System\Design Workflow`. To refresh it, re-run
 `scaffold-design.sh` from there. Do not delete `.claude/skills/impeccable/`; the detector and
 commands depend on it.
