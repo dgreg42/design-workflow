@@ -32,6 +32,8 @@ In priority order. Use the highest one available and say which you used.
    His pick beats your search.
 3. **Captured evidence.** Competitor, partner, and genuinely good pages captured for this
    project. Tagged, sourced, dated.
+   The standing reference library sits in this tier and is where a search starts. See
+   "The reference library" below.
 4. **Refero MCP**, when the subscription is live. `refero_search_styles` for visual
    direction, `refero_search_screens` for concrete patterns, `refero_search_flows` for
    multi-step journeys. Styles cover web marketing and product pages only, so use them for
@@ -45,6 +47,46 @@ designing your own and your clients' work. It is not licensed for bulk extractio
 training or evaluating models, or for building a competing dataset or search index. Read what
 it gives you, use it on the task in front of you, and do not harvest it into a library of our
 own. Captures we make ourselves from public pages are a separate thing and are ours.
+
+## The reference library
+
+A standing library of captured evidence, kept so research does not start from zero each time.
+It lives in the Brand Kit repo on the workstation:
+
+`D:\00_WORK\00_Projects\00_Developer\Brand Kit\_method\reference`
+
+- `case-studies\`: 191 real brand case study pages across ten lanes, by market. How the best
+  work in a market is structured, written and shown. Start at its `README.md`, then the brief
+  for the market in `by-market\`. `visual\VISUAL_EVIDENCE.md` holds what pages look like in a
+  browser.
+- `logos\`: 211 logo sources across seven lanes: evolutions, builds and specs, rationale,
+  small-firm marks, theory, existing datasets, process. `LOGO_RULES.md` is a draft set of
+  pass or fail tests for a mark. It is a proposal until Dan promotes it.
+- `decks\`, `design\` and `copy\` sit beside them. The `README.md` in the folder lists all five.
+
+Ready-to-use files are next door, in `Brand Kit\_method\assets`. Its `README.md` is the
+register of every starting file the method has: skeleton decks for a film treatment, a
+storyboard, identity routes, a case study and an idea, plus where the older templates live.
+Look there before laying anything out from nothing.
+
+Read it at step 1 of the loop, before searching anywhere else, whenever the work is for a
+named market, is a mark, or is a case study or guideline page. It counts as tier 3: it sits
+below the client's record and below anything Dan hands you, and above memory.
+
+It tells you what a market's conventions are, so following one or breaking one is a decision.
+It does not replace the loop. A library record can be a secondary reference with a bounded
+job. The primary reference for a piece of work is still chosen for that piece of work.
+
+**It is internal. It is studied and never shown.** Nothing from it appears in client work or
+anything published: no quoted lines, no images, no reused headline or idea name, no naming
+another studio's project or another brand's mark as a comparison. What carries over is
+structure, order, length, kind of language, reasoning and how a system is specified. A record
+ID (`CS-###`, `LG-###`) or a path into the library inside a deliverable is a leak. Name the
+records that shaped the work, by ID, in your notes to Dan and in the decision ledger. The
+ledger is internal and is the one file in a project where a library ID belongs.
+
+These are our own captures from public pages, read one page at a time. They are not Refero
+content and the licensing note above does not restrict them.
 
 ## The loop
 

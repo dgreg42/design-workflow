@@ -20,6 +20,9 @@ the common AI tells. It assembles five layers into one workflow.
   gray-on-color, nested cards, buzzword copy).
 - **Reference:** the awesome-design-md collection of real-brand DESIGN.md files,
   kept in Downloads as inspiration and starting templates.
+- **Reference library:** the internal library of captured evidence in the Brand Kit
+  repo (`Brand Kit\_method\reference`): brand case studies by market, logo sources and
+  draft logo rules. `RESEARCH.md` says when to read it. Internal only, never shown in work.
 
 The order matters. Research decides what goes into the design system; the detector
 checks what came out of it. Without the research layer the model supplies its own

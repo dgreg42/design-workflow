@@ -18,6 +18,9 @@ MUST follow this protocol. It is not optional and applies before writing or edit
 
 Research runs first, ahead of tokens and ahead of markup. Follow `RESEARCH.md`:
 
+- Start in the reference library named in `RESEARCH.md` (case studies by market, logo
+  sources, the draft logo rules). It is internal: studied, never shown, and nothing from it
+  appears in the work.
 - Search several angles and pull three or four references all the way through. Previews are
   not research.
 - Choose one primary reference and borrow one or two named details from the others. Do not
@@ -50,6 +53,7 @@ If the project has a governed brand record, it outranks everything found in rese
   ```bash
   npx @google/design.md lint DESIGN.md
   ```
+- We use Impeccable for the tell check.
 - Run the Impeccable detector on rendered output (HTML/JSX/pages) and resolve findings:
   ```bash
   node .claude/skills/impeccable/scripts/detect.mjs <path-or-dir>
